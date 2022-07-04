@@ -10,5 +10,6 @@ function countReducer(state = 0, action) {
       return state
   }
 }
+
 const store = createStore(countReducer)
 export default store

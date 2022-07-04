@@ -3,16 +3,24 @@ import store from '../store'
 
 export default class ReduxPage extends Component {
   componentDidMount() {
-    store.subscribe(() => {
+    // 订阅
+    this.unSubcribe = store.subscribe(() => {
       this.forceUpdate()
     })
   }
+  componentWillUnmount() {
+    // 取消订阅
+    this.unSubcribe()
+  }
+
   add = () => {
     store.dispatch({ type: "ADD" })
   }
+
   minus = () => {
     store.dispatch({ type: "MINUS" })
   }
+
   render() {
     return (
       <div>
