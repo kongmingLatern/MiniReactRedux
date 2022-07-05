@@ -18,7 +18,11 @@ export default class ReduxPage extends Component {
   }
 
   minus = () => {
-    store.dispatch({ type: "MINUS" })
+    store.dispatch((dispatch) => {
+      setTimeout(() => {
+        dispatch({ type: "MINUS" });
+      }, 1000);
+    });
   }
 
   render() {
