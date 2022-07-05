@@ -1,4 +1,8 @@
-import { createStore } from "../my-redux-nut";
+import { createStore, applyMiddleware } from "../my-redux-nut";
+// import { createStore } from "redux";
+import thunk from "redux-thunk";
+import logger from "redux-logger";
+// import { applyMiddleware } from "redux";
 
 function countReducer(state = 0, action) {
   switch (action.type) {
@@ -11,6 +15,6 @@ function countReducer(state = 0, action) {
   }
 }
 
-const store = createStore(countReducer)
+const store = createStore(countReducer, applyMiddleware(thunk, logger))
 
 export default store
