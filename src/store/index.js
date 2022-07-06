@@ -8,7 +8,7 @@ import combineReducers from "../middleWare/combineReducers";
 // import promise from 'redux-promise'
 // import { applyMiddleware } from "redux";
 
-function countReducer(state = 0, action) {
+export function countReducer(state = 0, action) {
   switch (action.type) {
     case "ADD":
       return state + 1
