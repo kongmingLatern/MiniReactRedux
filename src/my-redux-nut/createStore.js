@@ -13,7 +13,7 @@ export default function createStore(reducer, enhancer) {
   function dispatch(action) {
     // 累加状态, 参考 reduce(acc, curVal) => {} 函数
     // action: { type: "ADD" }: 指令
-    // 1.当 reducer 是 combineReducer，相当于 combineReducer()
+    // 调用 function combine(state = {}, action)
     currentState = reducer(currentState, action)
     currentListeners.forEach(listener => {
       listener()
