@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware } from "../my-redux-nut";
 import { logger, thunk, promise } from "../middleWare";
+import { combineReducers } from "redux";
 // import { createStore } from "redux";
 // import thunk from "redux-thunk";
 // import logger from "redux-logger";
@@ -17,6 +18,8 @@ function countReducer(state = 0, action) {
   }
 }
 
-const store = createStore(countReducer, applyMiddleware(thunk, promise, logger))
+const store = createStore(combineReducers({
+  count: countReducer
+}), applyMiddleware(thunk, promise, logger))
 
 export default store
