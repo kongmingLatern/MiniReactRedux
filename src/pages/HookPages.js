@@ -1,7 +1,6 @@
 import React, { useReducer } from 'react'
 import { countReducer } from '../store'
 
-
 const init = (initArg) => initArg - 0
 
 export default function HookPage(props) {
@@ -15,4 +14,3 @@ export default function HookPage(props) {
     </>
   )
 }
-

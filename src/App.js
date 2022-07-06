@@ -1,12 +1,14 @@
-import HookPage from './pages/HookPages'
+// import HookPage from './pages/HookPages'
 // import ReduxPage from './pages/ReduxPage'
+import ReactReduxPage from './pages/ReactReduxPage';
 
 
 function App() {
   return (
     <>
       {/* <ReduxPage /> */}
-      <HookPage />
+      {/* <HookPage /> */}
+      <ReactReduxPage />
     </>
   );
 }
