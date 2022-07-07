@@ -1,6 +1,7 @@
 import { useContext, useLayoutEffect } from "react"
 import { Context } from "./Provider"
 import useForceUpdate from "../shared/useForceUpdate"
+import { bindActionCreators } from "../my-redux-nut"
 
 const connect =
   (mapStateToProps, mapDispatchToProps) =>
@@ -9,8 +10,13 @@ const connect =
       const { getState, dispatch, subscribe } = store
 
       const stateProps = mapStateToProps(getState())
-      const dispatchProps = { dispatch }
+      let dispatchProps = { dispatch }
 
+      if (typeof mapDispatchToProps === 'function') {
+        dispatchProps = mapDispatchToProps(dispatch)
+      } else if (typeof mapDispatchToProps === 'object') {
+        dispatchProps = bindActionCreators(mapDispatchToProps, dispatch)
+      }
 
       const forceUpdate = useForceUpdate()
 
@@ -23,7 +29,7 @@ const connect =
         return () => {
           unsubscribe()
         }
-      }, [subscribe])
+      }, [forceUpdate, subscribe])
 
       return <WrappedComponent {...props} {...stateProps} {...dispatchProps} />
     }

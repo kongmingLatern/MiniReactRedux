@@ -18,14 +18,20 @@ export default connect(
       // minus: () => ({ type: "MINUS" }),
     }
 
+
     createors = bindActionCreators(createors, dispatch)
+
 
     return {
       dispatch,
       ...createors
     }
-
   }
+
+  // {
+  //   add: () => ({ type: "ADD" }),
+  //   minus: () => ({ type: "MINUS" }),
+  // }
 )(
   class ReactReduxPage extends Component {
     render() {
