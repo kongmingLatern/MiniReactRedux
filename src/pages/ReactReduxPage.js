@@ -35,7 +35,7 @@ export default connect(
         <div>
           <h3>ReactReduxPage</h3>
           <button onClick={() => dispatch({ type: "ADD" })}>dispatch: {count}</button>
-          <button onClick={add}>{count}</button>
+          <button onClick={add}>add:{count}</button>
         </div>
       )
     }
