@@ -1,16 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
+import { bindActionCreators } from '../my-redux-nut'
+// import { bindActionCreators } from 'redux'
 
-// export default class ReactReduxPage extends Component {
-//   render() {
-//     return (
-//       <div>
-//         <h3>ReactReduxPage</h3>
-//       </div>
-//     )
-//   }
-// }
 // HOC higher order Component, 高阶组件：是个函数，接收组件作为参数，返回新的组件
 export default connect(
   // mapStateToProps
