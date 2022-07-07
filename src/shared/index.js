@@ -1,5 +1,7 @@
 import isPromise from "./isPromise";
+import useForceUpdate from "./useForceUpdate";
 
 export {
-  isPromise
+  isPromise,
+  useForceUpdate
 }

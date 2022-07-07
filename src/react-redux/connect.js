@@ -1,5 +1,6 @@
-import { useContext, useLayoutEffect, useReducer } from "react"
+import { useContext, useLayoutEffect } from "react"
 import { Context } from "./Provider"
+import useForceUpdate from "../shared/useForceUpdate"
 
 const connect =
   (mapStateToProps, mapDispatchToProps) =>
@@ -10,7 +11,8 @@ const connect =
       const stateProps = mapStateToProps(getState())
       const dispatchProps = { dispatch }
 
-      const [_, forceUpdate] = useReducer(x => x + 1, 0)
+
+      const forceUpdate = useForceUpdate()
 
 
       useLayoutEffect(() => {
@@ -21,8 +23,9 @@ const connect =
         return () => {
           unsubscribe()
         }
-      }, [])
+      }, [subscribe])
 
       return <WrappedComponent {...props} {...stateProps} {...dispatchProps} />
     }
+
 export default connect  
