@@ -1,7 +1,7 @@
 // import HookPage from './pages/HookPages'
 // import ReduxPage from './pages/ReduxPage'
-// import ReactReduxPage from './pages/ReactReduxPage';
-import ReactReduxPageFun from "./pages/ReactReduxPageFun";
+import ReactReduxPage from './pages/ReactReduxPage';
+// import ReactReduxPageFun from "./pages/ReactReduxPageFun";
 
 function App() {
   return (
@@ -10,10 +10,10 @@ function App() {
     //   {/* <HookPage /> */}
     //   <ReactReduxPage />
     // </>
-    // <ReactReduxPage />
-    <>
-      <ReactReduxPageFun />
-    </>
+    <ReactReduxPage />
+    // <>
+    //   <ReactReduxPageFun />
+    // </>
   );
 }
 

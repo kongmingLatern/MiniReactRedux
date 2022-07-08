@@ -1,4 +1,4 @@
-import { useContext, useLayoutEffect } from "react"
+import { useContext, useLayoutEffect, useSyncExternalStore } from "react"
 import { Context } from "./Provider"
 import useForceUpdate from "../shared/useForceUpdate"
 import { bindActionCreators } from "../my-redux-nut"
@@ -9,7 +9,7 @@ const connect =
       const store = useContext(Context)
       const { getState, dispatch, subscribe } = store
 
-      const stateProps = mapStateToProps(getState())
+      // const stateProps = mapStateToProps(getState())
       let dispatchProps = { dispatch }
 
       if (typeof mapDispatchToProps === 'function') {
@@ -21,15 +21,20 @@ const connect =
       const forceUpdate = useForceUpdate()
 
 
-      useLayoutEffect(() => {
-        const unsubscribe = subscribe(() => {
-          forceUpdate()
-        })
+      // useLayoutEffect(() => {
+      //   const unsubscribe = subscribe(() => {
+      //     forceUpdate()
+      //   })
 
-        return () => {
-          unsubscribe()
-        }
-      }, [forceUpdate, subscribe])
+      //   return () => {
+      //     unsubscribe()
+      //   }
+      // }, [forceUpdate, subscribe])
+      const state = useSyncExternalStore(() => {
+        subscribe(forceUpdate)
+      }, getState)
+
+      const stateProps = mapStateToProps(state)
 
       return <WrappedComponent {...props} {...stateProps} {...dispatchProps} />
     }
