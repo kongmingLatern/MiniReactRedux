@@ -8,7 +8,7 @@ export default function ReactReduxPageFun() {
 
   const add = useCallback(() => {
     dispatch({ type: "ADD" })
-  }, [])
+  }, [dispatch])
 
   return (
     <>
