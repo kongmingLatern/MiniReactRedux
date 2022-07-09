@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware } from "../my-redux-nut";
 import { logger, thunk, promise } from "../middleWare";
 import combineReducers from "../middleWare/combineReducers";
+// redux and react
 // import { combineReducers } from "redux";
 // import { createStore } from "redux";
 // import thunk from "redux-thunk";

@@ -20,7 +20,7 @@ export default class ReduxPageTest extends Component {
     return (
       <>
         <div>ReduxPageTest</div>
-        <button>1</button>
+        <button>{store.getState().count}</button>
         <br />
         <button onClick={this.add}>add</button>
         <button onClick={this.minus}>minus</button>
